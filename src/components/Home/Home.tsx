@@ -6,6 +6,7 @@ import Filters from '../Filters';
 import Dropdown from '../Dropdown';
 import { Card } from '../Card/Card';
 import { currencyData, multiplierData, multiplierTypeData, priceData } from '../Filters/data';
+import { blockheadsData, multipliersData, prizesData, rentalsData } from './data';
 
 export const Home = () => {
     const [isCurrencyOpen, setIsCurrencyOpen] = useState(true);
@@ -40,7 +41,7 @@ export const Home = () => {
                     <Tab className='tab absolute z-30 left-0' title="Rentals" index={0} selected={selectedTabIndex === 0} onClick={() => handleTabClick(0)} />
                     <Tab className='tab absolute z-20 left-[8.5rem]' title="Blockheads" index={1} selected={selectedTabIndex === 1} onClick={() => handleTabClick(1)} />
                     <Tab className='tab absolute z-10 left-[20.5rem]' title="Multipliers" index={2} selected={selectedTabIndex === 2} onClick={() => handleTabClick(2)} />
-                    <Tab className='tab absolute z-0 left-[31.5rem]' title="Multipliers" index={3} selected={selectedTabIndex === 3} onClick={() => handleTabClick(3)} />
+                    <Tab className='tab absolute z-0 left-[31.5rem]' title="Prizes" index={3} selected={selectedTabIndex === 3} onClick={() => handleTabClick(3)} />
                 </div>
                 <div className='w-full sm:w-auto flex items-end mb-2'><Dropdown /></div>
             </div>
@@ -51,18 +52,54 @@ export const Home = () => {
                     <Filters name="Sort by Price" options={priceData} isOpen={isPriceOpen} setIsOpen={setIsPriceOpen} />
                     <Filters name="Multiplier Types" options={multiplierTypeData} isOpen={isMultiplierTypeOpen} setIsOpen={setIsMultiplierTypeOpen} />
                 </div>
-                <div className='w-full grid gap-14 sm:grid sm:grid-cols-2 lg:grid xl:grid-cols-3 2xl:grid 2xl:grid-cols-4'>
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                </div>
+                {selectedTabIndex === 0 && <div className='w-full grid gap-14 sm:grid sm:grid-cols-2 lg:grid xl:grid-cols-3 2xl:grid 2xl:grid-cols-4'>
+                    {rentalsData?.map(({ image, title, subTitle, description, subDescription, price }) => {
+                        return (
+                            <Card image={image}
+                                title={title}
+                                subTitle={subTitle}
+                                description={description}
+                                subDescription={subDescription}
+                                price={price} />
+                        )
+                    })}
+                </div>}
+                {selectedTabIndex === 1 && <div className='w-full grid gap-14 sm:grid sm:grid-cols-2 lg:grid xl:grid-cols-3 2xl:grid 2xl:grid-cols-4'>
+                    {blockheadsData?.map(({ image, title, subTitle, description, subDescription, price }) => {
+                        return (
+                            <Card image={image}
+                                title={title}
+                                subTitle={subTitle}
+                                description={description}
+                                subDescription={subDescription}
+                                price={price} />
+                        )
+                    })}
+                </div>}
+                {selectedTabIndex === 2 && <div className='w-full grid gap-14 sm:grid sm:grid-cols-2 lg:grid xl:grid-cols-3 2xl:grid 2xl:grid-cols-4'>
+                    {multipliersData?.map(({ image, title, subTitle, description, subDescription, price }) => {
+                        return (
+                            <Card image={image}
+                                title={title}
+                                subTitle={subTitle}
+                                description={description}
+                                subDescription={subDescription}
+                                price={price} />
+                        )
+                    })}
+                </div>}
+                {selectedTabIndex === 3 && <div className='w-full grid gap-14 sm:grid sm:grid-cols-2 lg:grid xl:grid-cols-3 2xl:grid 2xl:grid-cols-4'>
+                    {prizesData?.map(({ image, title, subTitle, description, subDescription, price }) => {
+                        return (
+                            <Card image={image}
+                                title={title}
+                                subTitle={subTitle}
+                                description={description}
+                                subDescription={subDescription}
+                                price={price} />
+                        )
+                    })}
+                </div>}
             </div>
         </div>
     );
