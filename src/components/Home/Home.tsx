@@ -1,12 +1,17 @@
 "use client"
 
-import React from 'react';
+import React, { useState } from 'react';
 import Tab from '../Tab';
 import Filters from '../Filters';
 import Dropdown from '../Dropdown';
 import { Card } from '../Card/Card';
+import { currencyData, multiplierData, multiplierTypeData, priceData } from '../Filters/data';
 
 export const Home = () => {
+    const [isCurrencyOpen, setIsCurrencyOpen] = useState(false);
+    const [isMultiplierOpen, setIsMultiplierOpen] = useState(false);
+    const [isPriceOpen, setIsPriceOpen] = useState(false);
+    const [isMultiplierTypeOpen, setIsMultiplierTypeOpen] = useState(false);
     return (
         <div className='p-3.5'>
             <div className='flex items-center justify-between mb-4'>
@@ -36,10 +41,10 @@ export const Home = () => {
             </div>
             <div className='flex flex-col sm:flex-row w-full gap-12 mt-10'>
                 <div className='w-full sm:max-w-[300px]'>
-                    <Filters name="Currency" />
-                    <Filters name="Multiplier Level" />
-                    <Filters name="Sort by Price" />
-                    <Filters name="Multiplier Types" />
+                    <Filters name="Currency" options={currencyData} isOpen={isCurrencyOpen} setIsOpen={setIsCurrencyOpen} />
+                    <Filters name="Multiplier Level" options={multiplierData} isOpen={isMultiplierOpen} setIsOpen={setIsMultiplierOpen} />
+                    <Filters name="Sort by Price" options={priceData} isOpen={isPriceOpen} setIsOpen={setIsPriceOpen} />
+                    <Filters name="Multiplier Types" options={multiplierTypeData} isOpen={isMultiplierTypeOpen} setIsOpen={setIsMultiplierTypeOpen} />
                 </div>
                 <div className='w-full grid gap-14 sm:grid sm:grid-cols-2 lg:grid xl:grid-cols-3 2xl:grid 2xl:grid-cols-4'>
                     <Card />
