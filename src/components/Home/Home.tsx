@@ -4,16 +4,16 @@ import React, { useState } from 'react';
 import Tab from '../Tab';
 import Filters from '../Filters';
 import Dropdown from '../Dropdown';
-import { Card } from '../Card/Card';
 import { currencyData, multiplierData, multiplierTypeData, priceData } from '../Filters/data';
 import { blockheadsData, multipliersData, prizesData, rentalsData } from './data';
+import TabWrapper from '../TabWrapper';
 
 export const Home = () => {
     const [isCurrencyOpen, setIsCurrencyOpen] = useState(true);
     const [isMultiplierOpen, setIsMultiplierOpen] = useState(true);
     const [isPriceOpen, setIsPriceOpen] = useState(true);
     const [isMultiplierTypeOpen, setIsMultiplierTypeOpen] = useState(true);
-    const [selectedTabIndex, setSelectedTabIndex] = useState(2);
+    const [selectedTabIndex, setSelectedTabIndex] = useState(0);
 
     const handleTabClick = (index: number) => {
         setSelectedTabIndex(index);
@@ -52,54 +52,10 @@ export const Home = () => {
                     <Filters name="Sort by Price" options={priceData} isOpen={isPriceOpen} setIsOpen={setIsPriceOpen} />
                     <Filters name="Multiplier Types" options={multiplierTypeData} isOpen={isMultiplierTypeOpen} setIsOpen={setIsMultiplierTypeOpen} />
                 </div>
-                {selectedTabIndex === 0 && <div className='w-full grid gap-14 sm:grid sm:grid-cols-2 lg:grid xl:grid-cols-3 2xl:grid 2xl:grid-cols-4'>
-                    {rentalsData?.map(({ image, title, subTitle, description, subDescription, price }) => {
-                        return (
-                            <Card image={image}
-                                title={title}
-                                subTitle={subTitle}
-                                description={description}
-                                subDescription={subDescription}
-                                price={price} />
-                        )
-                    })}
-                </div>}
-                {selectedTabIndex === 1 && <div className='w-full grid gap-14 sm:grid sm:grid-cols-2 lg:grid xl:grid-cols-3 2xl:grid 2xl:grid-cols-4'>
-                    {blockheadsData?.map(({ image, title, subTitle, description, subDescription, price }) => {
-                        return (
-                            <Card image={image}
-                                title={title}
-                                subTitle={subTitle}
-                                description={description}
-                                subDescription={subDescription}
-                                price={price} />
-                        )
-                    })}
-                </div>}
-                {selectedTabIndex === 2 && <div className='w-full grid gap-14 sm:grid sm:grid-cols-2 lg:grid xl:grid-cols-3 2xl:grid 2xl:grid-cols-4'>
-                    {multipliersData?.map(({ image, title, subTitle, description, subDescription, price }) => {
-                        return (
-                            <Card image={image}
-                                title={title}
-                                subTitle={subTitle}
-                                description={description}
-                                subDescription={subDescription}
-                                price={price} />
-                        )
-                    })}
-                </div>}
-                {selectedTabIndex === 3 && <div className='w-full grid gap-14 sm:grid sm:grid-cols-2 lg:grid xl:grid-cols-3 2xl:grid 2xl:grid-cols-4'>
-                    {prizesData?.map(({ image, title, subTitle, description, subDescription, price }) => {
-                        return (
-                            <Card image={image}
-                                title={title}
-                                subTitle={subTitle}
-                                description={description}
-                                subDescription={subDescription}
-                                price={price} />
-                        )
-                    })}
-                </div>}
+                {selectedTabIndex === 0 && <TabWrapper tabData={rentalsData} />}
+                {selectedTabIndex === 1 && <TabWrapper tabData={blockheadsData} />}
+                {selectedTabIndex === 2 && <TabWrapper tabData={multipliersData} />}
+                {selectedTabIndex === 3 && <TabWrapper tabData={prizesData} />}
             </div>
         </div>
     );

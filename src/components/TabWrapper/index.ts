@@ -1,0 +1,1 @@
+export { TabWrapper as default } from './TabWrapper';
