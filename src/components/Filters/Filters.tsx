@@ -19,10 +19,10 @@ export const Filters: React.FC<FiltersProps> = ({ name, options }) => {
     };
 
     return (
-        <div className="p-4 flex flex-col items-center">
+        <div className="py-4 flex flex-col items-center">
             <div className="w-full">
                 <div className="relative">
-                    <div className="text-gray-900 text-sm rounded-lg w-full p-2.5 flex items-center justify-between">
+                    <div className="text-gray-900 text-sm rounded-lg w-full py-2.5 flex items-center justify-between">
                         <label htmlFor={`${name && name.toLowerCase()}-label`} className="text-[#262626] font-bold text-[24px]">
                             {name}
                         </label>
@@ -37,7 +37,7 @@ export const Filters: React.FC<FiltersProps> = ({ name, options }) => {
                         </button>
                     </div>
                     {isOpen && (
-                        <div className=" z-10 w-full bg-white rounded-md">
+                        <div className="px-4 z-10 w-full bg-white rounded-md">
                             {selectedOptions.map((option) => (
                                 <div
                                     key={option.id}

@@ -8,10 +8,10 @@ import { Card } from '../Card/Card';
 import { currencyData, multiplierData, multiplierTypeData, priceData } from '../Filters/data';
 
 export const Home = () => {
-    const [isCurrencyOpen, setIsCurrencyOpen] = useState(false);
-    const [isMultiplierOpen, setIsMultiplierOpen] = useState(false);
-    const [isPriceOpen, setIsPriceOpen] = useState(false);
-    const [isMultiplierTypeOpen, setIsMultiplierTypeOpen] = useState(false);
+    const [isCurrencyOpen, setIsCurrencyOpen] = useState(true);
+    const [isMultiplierOpen, setIsMultiplierOpen] = useState(true);
+    const [isPriceOpen, setIsPriceOpen] = useState(true);
+    const [isMultiplierTypeOpen, setIsMultiplierTypeOpen] = useState(true);
     return (
         <div className='p-3.5'>
             <div className='flex items-center justify-between mb-4'>

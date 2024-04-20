@@ -24,7 +24,7 @@ export const Dropdown: React.FC = () => {
         <div className=" flex  flex-col items-center">
             <div className="w-[250px]">
                 <div className="relative">
-                    <div className="bg-[#D9D9D9] border border-gray-300 text-gray-900 text-sm rounded-lg block w-full px-2 py-1.5">
+                    <div className="bg-[#D9D9D9]  text-gray-900 text-sm rounded-lg block w-full px-2 py-1.5">
                         <label htmlFor="currency-label" className="text-[#262626] font-normal text-[24px]">
                             Most Popular
                         </label>
@@ -41,7 +41,7 @@ export const Dropdown: React.FC = () => {
                         </button>
                     </div>
                     {isOpen && (
-                        <div className="absolute z-10 w-full bg-white border border-[#BCBCBC] rounded-md shadow-lg mt-1">
+                        <div className="absolute z-10 w-full bg-white p-2  rounded-md shadow-lg mt-1">
                             {currencies.map((currency) => (
                                 <div
                                     key={currency.id}
