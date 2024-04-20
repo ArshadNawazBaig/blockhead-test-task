@@ -12,6 +12,11 @@ export const Home = () => {
     const [isMultiplierOpen, setIsMultiplierOpen] = useState(true);
     const [isPriceOpen, setIsPriceOpen] = useState(true);
     const [isMultiplierTypeOpen, setIsMultiplierTypeOpen] = useState(true);
+    const [selectedTabIndex, setSelectedTabIndex] = useState(2);
+
+    const handleTabClick = (index: number) => {
+        setSelectedTabIndex(index);
+    };
     return (
         <div className='p-3.5'>
             <div className='flex items-center justify-between mb-4'>
@@ -32,10 +37,10 @@ export const Home = () => {
             </div>
             <div className='flex justify-between border-b border-black min-h-16'>
                 <div className='flex relative mt-[15px]'>
-                    <Tab className='tab  absolute z-30 left-0' title="Rentals" index={0} />
-                    <Tab className='tab  absolute z-20 left-[8.5rem]' title="Blockheads" index={1} />
-                    <Tab selected={true} className='tab absolute z-10 left-[20.5rem]' title="Multipliers" index={2} />
-                    <Tab className='tab absolute z-0 left-[31.5rem]' title="Multipliers" index={2} />
+                    <Tab className='tab absolute z-30 left-0' title="Rentals" index={0} selected={selectedTabIndex === 0} onClick={() => handleTabClick(0)} />
+                    <Tab className='tab absolute z-20 left-[8.5rem]' title="Blockheads" index={1} selected={selectedTabIndex === 1} onClick={() => handleTabClick(1)} />
+                    <Tab className='tab absolute z-10 left-[20.5rem]' title="Multipliers" index={2} selected={selectedTabIndex === 2} onClick={() => handleTabClick(2)} />
+                    <Tab className='tab absolute z-0 left-[31.5rem]' title="Multipliers" index={3} selected={selectedTabIndex === 3} onClick={() => handleTabClick(3)} />
                 </div>
                 <div className='w-full sm:w-auto flex items-end mb-2'><Dropdown /></div>
             </div>
