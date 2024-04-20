@@ -37,18 +37,9 @@ const tableData = [
 ]
 
 export const Home = () => {
-    const [isCurrencyOpen, setIsCurrencyOpen] = useState(true);
-    const [isMultiplierOpen, setIsMultiplierOpen] = useState(true);
-    const [isPriceOpen, setIsPriceOpen] = useState(true);
-    const [isMultiplierTypeOpen, setIsMultiplierTypeOpen] = useState(true);
-    const [selectedTabIndex, setSelectedTabIndex] = useState(0);
-
-    const handleTabClick = (index: number) => {
-        setSelectedTabIndex(index);
-    };
     return (
         <div className='p-3.5'>
-            <div className='flex items-center justify-between mb-4'>
+            <div className='flex flex-col items-start justify-center mb-4'>
                 <h4 className={` text-5xl font-bold mb-5  rounded-t-xl`}>
                     Schedule
                 </h4>

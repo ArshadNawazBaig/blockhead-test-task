@@ -9,11 +9,13 @@ import { TwitchIcon } from '@/svgs/TwitchIcon'
 import { ProfileIcon } from '@/svgs/ProfileIcon'
 import { WalletIcon } from '@/svgs/WalletIcon'
 import { TrophyIcon } from '@/svgs/TrophyIcon'
+import { useRouter } from 'next/navigation'
 
 export const Navbar = () => {
+    const router = useRouter();
     return (
         <div className='h-[80px] bg-black flex items-center'>
-            <div className='ml-5'>
+            <div className='ml-5 cursor-pointer' onClick={() => router.push('/')}>
                 <Logo />
             </div>
             <div className='w-full bg-red h-full'>
@@ -34,11 +36,11 @@ export const Navbar = () => {
 
                     <div className='w-full sm:w-auto flex items-center '>
                         <div className='flex gap-4 mr-40'>
-                            <h4 className='text-white'>HOME</h4>
-                            <h4 className='text-white'>SCHEDULE</h4>
-                            <h4 className='text-white'>MY BH</h4>
-                            <h4 className='text-white'>RENTALS</h4>
-                            <h4 className='text-[#FD0013]'>MARKETPLACE</h4>
+                            <h4 className='text-white cursor-pointer' onClick={() => router.push('/')}>HOME</h4>
+                            <h4 className='text-white cursor-pointer' onClick={() => router.push('/marketplace')}>SCHEDULE</h4>
+                            <h4 className='text-white cursor-pointer' onClick={() => router.push('/marketplace')}>MY BH</h4>
+                            <h4 className='text-white cursor-pointer' onClick={() => router.push('/marketplace')}>RENTALS</h4>
+                            <h4 className='text-[#FD0013] cursor-pointer' onClick={() => router.push('/marketplace')}>MARKETPLACE</h4>
                         </div>
                         <input type="search" className='rounded-full bg-[#E6E6E6] h-8 border px-4 py-3' placeholder='Search' />
                     </div>
