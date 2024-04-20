@@ -1,0 +1,1 @@
+export { CustomCheckbox as default } from './CustomCheckbox';
